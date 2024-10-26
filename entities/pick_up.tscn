@@ -1,20 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dph0u62ruwg0e"]
+[gd_scene load_steps=3 format=3 uid="uid://dph0u62ruwg0e"]
 
 [ext_resource type="Script" path="res://entities/pick_up.gd" id="1_2u4nx"]
-[ext_resource type="Texture2D" uid="uid://5ebljrqrd6v0" path="res://assets/textures/pickup.png" id="2_ubnf7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6xw"]
 size = Vector2(32, 32)
 
-[node name="Node2D" type="Area2D" groups=["pickup"]]
+[node name="PickUp" type="Area2D" groups=["pickup"]]
 script = ExtResource("1_2u4nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ka6xw")
-
-[node name="Pickup" type="Sprite2D" parent="."]
-texture = ExtResource("2_ubnf7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

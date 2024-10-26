@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtrw3rohq1gus"]
+
+[ext_resource type="PackedScene" uid="uid://bh4nx8xofl8bd" path="res://tiles/tile_map.tscn" id="1_mblsn"]
+[ext_resource type="PackedScene" uid="uid://bwmr53u0td13h" path="res://entities/player.tscn" id="2_jr2mx"]
+[ext_resource type="PackedScene" uid="uid://dnlc5k7tk3k5k" path="res://entities/moving_platform.tscn" id="3_pvty7"]
+[ext_resource type="PackedScene" uid="uid://dph0u62ruwg0e" path="res://entities/pick_up.tscn" id="4_vdvyj"]
+[ext_resource type="PackedScene" uid="uid://hn5wpfy80xu6" path="res://entities/level_changer.tscn" id="5_skqyt"]
+
+[sub_resource type="Curve2D" id="Curve2D_ylab7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -111, -11, 0, 0, 0, 0, 80, -11, 0, 0, 0, 0, -111, -11)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_56sje"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_0vo78"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_mblsn")]
+layer_0/tile_data = PackedInt32Array(720896, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 720899, 1, 0, 720898, 1, 0, 720897, 1, 0, 655369, 1, 0, 655368, 1, 0, 720904, 1, 0, 720905, 1, 0, 655370, 1, 0, 720906, 1, 0, 589834, 2, 131072, 524298, 2, 131072, 589835, 2, 131072, 524299, 2, 131072, 458763, 2, 131072, 458762, 2, 131072, 393226, 2, 131072, 393227, 2, 131072, 327692, 2, 131072, 327691, 2, 131072, 196626, 2, 131072, 262162, 2, 131072, 131090, 2, 131072, 65554, 2, 131072, 18, 2, 131072, 17, 2, 131072, 16, 2, 131072, 12, 2, 131072, 13, 2, 131072, 14, 2, 131072, 15, 2, 131072, 458764, 1, 0, 458765, 1, 0, 393229, 1, 0, 393228, 2, 131072, 327693, 2, 131072, 327698, 2, 131072, 589833, 2, 131072, 524297, 2, 131072, 458761, 2, 131072, 393225, 2, 131072, 327689, 2, 131072, 327690, 2, 131072, 131080, 1, 0, 720900, 65537, 0, 720901, 65537, 0, 720902, 65537, 0, 720903, 65537, 0, 655367, 65537, 0, 655366, 65537, 0, 655365, 65537, 0, 655364, 65537, 0)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_jr2mx")]
+position = Vector2(46, 544)
+metadata/_edit_lock_ = true
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(367, 651)
+curve = SubResource("Curve2D_ylab7")
+
+[node name="PickUp" parent="." instance=ExtResource("4_vdvyj")]
+position = Vector2(534, 619)
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(896, 384)
+curve = SubResource("Curve2D_56sje")
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(768, 128)
+curve = SubResource("Curve2D_0vo78")
+
+[node name="LevelChanger" parent="." instance=ExtResource("5_skqyt")]
+position = Vector2(544, 96)

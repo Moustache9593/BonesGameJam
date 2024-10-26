@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://pmlgo6dsdjak"]
+
+[ext_resource type="Texture2D" uid="uid://d22u3dtm0x6m0" path="res://assets/textures/tiles_0003.png" id="1_7flbe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja7p2"]
+size = Vector2(64, 64)
+
+[node name="Climable" type="Area2D" groups=["climable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7flbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ja7p2")

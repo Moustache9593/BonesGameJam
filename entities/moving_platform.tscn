@@ -6,13 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gegm0"]
 size = Vector2(64, 64)
 
-[node name="MovingPlatform" type="Path2D"]
+[node name="MovingPlatform" type="Path2D" groups=["moving_platform"]]
 script = ExtResource("1_j0a74")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotates = false
 
-[node name="Platform" type="StaticBody2D" parent="PathFollow2D"]
+[node name="Platform" type="StaticBody2D" parent="PathFollow2D" groups=["moving_platform"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Platform"]
 position = Vector2(32, 32)
