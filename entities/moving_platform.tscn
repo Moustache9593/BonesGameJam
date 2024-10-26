@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnlc5k7tk3k5k"]
+
+[ext_resource type="Texture2D" uid="uid://c32fxk74dcp54" path="res://assets/textures/tiles_0001.png" id="1_ed8p4"]
+[ext_resource type="Script" path="res://entities/moving_platform.gd" id="1_j0a74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gegm0"]
+size = Vector2(64, 64)
+
+[node name="MovingPlatform" type="Path2D"]
+script = ExtResource("1_j0a74")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="Platform" type="StaticBody2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Platform"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_gegm0")
+
+[node name="Tiles0001" type="Sprite2D" parent="PathFollow2D/Platform"]
+texture = ExtResource("1_ed8p4")
+centered = false

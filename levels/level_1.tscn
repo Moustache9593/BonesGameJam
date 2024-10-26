@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://btg62h2wx5o6f"]
+
+[ext_resource type="PackedScene" uid="uid://bh4nx8xofl8bd" path="res://tiles/tile_map.tscn" id="1_ouxcg"]
+[ext_resource type="PackedScene" uid="uid://bwmr53u0td13h" path="res://entities/player.tscn" id="2_1s5fw"]
+[ext_resource type="PackedScene" uid="uid://dnlc5k7tk3k5k" path="res://entities/moving_platform.tscn" id="3_gbo8b"]
+
+[sub_resource type="Curve2D" id="Curve2D_ylab7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -111, -11, 0, 0, 0, 0, 80, -11, 0, 0, 0, 0, -111, -11)
+}
+point_count = 3
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_ouxcg")]
+layer_0/tile_data = PackedInt32Array(720896, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 720899, 1, 0, 720898, 1, 0, 720897, 1, 0, 655369, 1, 0, 655368, 1, 0, 720904, 1, 0, 720905, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_1s5fw")]
+position = Vector2(46, 544)
+metadata/_edit_lock_ = true
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_gbo8b")]
+position = Vector2(367, 651)
+curve = SubResource("Curve2D_ylab7")

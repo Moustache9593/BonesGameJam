@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwmr53u0td13h"]
+[gd_scene load_steps=5 format=3 uid="uid://bwmr53u0td13h"]
 
 [ext_resource type="Script" path="res://entities/player.gd" id="1_1ggas"]
 [ext_resource type="Texture2D" uid="uid://bxox6fnc7nguh" path="res://assets/textures/smile.png" id="2_6lmd6"]
+[ext_resource type="Texture2D" uid="uid://c32fxk74dcp54" path="res://assets/textures/tiles_0001.png" id="2_p6k4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4y7f"]
+size = Vector2(32, 32)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1ggas")
+
+[node name="Tiles0001" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.105882)
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("2_p6k4o")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0406607, 0.042328)
+texture = ExtResource("2_6lmd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k4y7f")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.101562, 1.10269e-06)
-scale = Vector2(0.0251549, 0.026455)
-texture = ExtResource("2_6lmd6")
