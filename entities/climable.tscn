@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pmlgo6dsdjak"]
 
-[ext_resource type="Texture2D" uid="uid://d22u3dtm0x6m0" path="res://assets/textures/tiles_0003.png" id="1_7flbe"]
+[ext_resource type="Texture2D" uid="uid://doq8vst5trxie" path="res://assets/textures/climbing tiles 001.png" id="1_l5ocx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ja7p2"]
 size = Vector2(64, 64)
@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 [node name="Climable" type="Area2D" groups=["climable"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7flbe")
+texture = ExtResource("1_l5ocx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ja7p2")
