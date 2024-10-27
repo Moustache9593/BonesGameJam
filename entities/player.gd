@@ -63,7 +63,7 @@ func _physics_process(delta):
 		if not can_climb():
 			desired_velcity.y += get_gravity()
 	if is_on_floor() and !moving_platforms.is_empty():
-		print("Moving Platforms")
+		#print("Moving Platforms")
 		desired_velcity += moving_platforms.back().get_parent().get_parent().velocity
 	if direction:
 		desired_velcity.x += direction * SPEED 
@@ -75,7 +75,7 @@ func _physics_process(delta):
 		desired_velcity.y += CLIMB_SPEED * get_climb_direction()
 	elif can_climb() and !is_climbing():
 		desired_velcity.y += 0
-	print(desired_velcity)
+	#print(desired_velcity)
 	velocity = velocity.move_toward(desired_velcity,delta*2000)
 	move_and_slide()
 
