@@ -55,6 +55,28 @@ level_path = "res://levels/level_2.tscn"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_yj7sa")]
 
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 448.0
+offset_right = 216.0
+offset_bottom = 568.0
+text = "Use A to move left.
+Use D to move right.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 456.0
+offset_right = 767.0
+offset_bottom = 576.0
+text = "Use W to climb upwards.
+Use S to climb downwards.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="TileMap/Lava" to="TileMap/Lava" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMap/@Area2D@36147" to="TileMap/@Area2D@36147" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMap/@Area2D@36148" to="TileMap/@Area2D@36148" method="_on_body_entered"]
