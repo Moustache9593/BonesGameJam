@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl2f38cvoi1a8"]
+
+[ext_resource type="PackedScene" uid="uid://bqsnt5lsixafr" path="res://background/parallax_background.tscn" id="1_tvto8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xwfl"]
+font_size = 50
+font_color = Color(1, 1, 0.588235, 1)
+outline_size = 5
+outline_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+
+[node name="WinScreen" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_tvto8")]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "You've escaped hell!!!"
+label_settings = SubResource("LabelSettings_7xwfl")
+horizontal_alignment = 1
+vertical_alignment = 1
