@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://pufaulr0sqw"]
+[gd_scene load_steps=11 format=3 uid="uid://pufaulr0sqw"]
 
 [ext_resource type="PackedScene" uid="uid://bh4nx8xofl8bd" path="res://tiles/tile_map.tscn" id="1_glwqw"]
 [ext_resource type="PackedScene" uid="uid://bwmr53u0td13h" path="res://entities/player.tscn" id="2_fh2y3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dph0u62ruwg0e" path="res://entities/pick_up.tscn" id="4_rbu6m"]
 [ext_resource type="PackedScene" uid="uid://hn5wpfy80xu6" path="res://entities/level_changer.tscn" id="5_snfsj"]
 [ext_resource type="PackedScene" uid="uid://bqsnt5lsixafr" path="res://background/parallax_background.tscn" id="6_ewrb5"]
+[ext_resource type="PackedScene" uid="uid://cgp3hadmn1wax" path="res://entities/immobile_plume.tscn" id="7_675kx"]
 
 [sub_resource type="Curve2D" id="Curve2D_ylab7"]
 _data = {
@@ -55,3 +56,6 @@ position = Vector2(544, 96)
 level_path = "res://levels/level_2.tscn"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_ewrb5")]
+
+[node name="immobile_plume" parent="." instance=ExtResource("7_675kx")]
+position = Vector2(192, 640)

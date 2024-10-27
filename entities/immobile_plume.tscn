@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfq3h"]
@@ -48,9 +48,27 @@ script = ExtResource("1_khutq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, -64)
 sprite_frames = SubResource("SpriteFrames_tkby0")
+frame_progress = 0.935066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, -64)
 shape = SubResource("RectangleShape2D_gfq3h")
 
+[node name="TIME_START" type="Timer" parent="."]
+one_shot = true
+
+[node name="COOL_DOWN_TIME" type="Timer" parent="."]
+one_shot = true
+
+[node name="CHARGE_TIME" type="Timer" parent="."]
+one_shot = true
+
+[node name="ACTIVE_TIME" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="TIME_START" to="." method="_on_time_start_timeout"]
+[connection signal="timeout" from="COOL_DOWN_TIME" to="." method="_on_cool_down_time_timeout"]
+[connection signal="timeout" from="CHARGE_TIME" to="." method="_on_charge_time_timeout"]
+[connection signal="timeout" from="ACTIVE_TIME" to="." method="_on_active_time_timeout"]

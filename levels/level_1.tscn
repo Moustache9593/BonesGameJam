@@ -54,17 +54,3 @@ position = Vector2(544, 96)
 level_path = "res://levels/level_2.tscn"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_yj7sa")]
-
-[connection signal="body_entered" from="TileMap/Lava" to="TileMap/Lava" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184606" to="TileMap/@Area2D@184606" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184607" to="TileMap/@Area2D@184607" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184608" to="TileMap/@Area2D@184608" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184609" to="TileMap/@Area2D@184609" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184610" to="TileMap/@Area2D@184610" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184611" to="TileMap/@Area2D@184611" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184612" to="TileMap/@Area2D@184612" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184613" to="TileMap/@Area2D@184613" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184614" to="TileMap/@Area2D@184614" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184615" to="TileMap/@Area2D@184615" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184616" to="TileMap/@Area2D@184616" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@184617" to="TileMap/@Area2D@184617" method="_on_body_entered"]
