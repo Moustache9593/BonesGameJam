@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhj3mhoop5wtt"]
+
+[ext_resource type="Script" path="res://entities/lava_plume.gd" id="1_gacq3"]
+[ext_resource type="Texture2D" uid="uid://de1dftn0ibk6r" path="res://assets/textures/lava_plume.png" id="2_psbfu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wlyb3"]
+radius = 24.0
+
+[node name="LavaPlume" type="Path2D" groups=["moving_platform"]]
+script = ExtResource("1_gacq3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="Platform" type="Area2D" parent="PathFollow2D"]
+
+[node name="Tiles0001" type="Sprite2D" parent="PathFollow2D/Platform"]
+texture = ExtResource("2_psbfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Platform"]
+shape = SubResource("CircleShape2D_wlyb3")
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="PathFollow2D/Platform" to="." method="_on_platform_body_entered"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_time_timeout"]

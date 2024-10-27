@@ -7,7 +7,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_bf0gb")]
-layer_0/tile_data = PackedInt32Array(262153, 1, 0, 262154, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 196622, 2, 131072, 131086, 2, 131072, 262158, 2, 131072)
+layer_0/tile_data = PackedInt32Array(262153, 1, 0, 262154, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 196622, 2, 131072, 131086, 2, 131072, 262158, 2, 131072, 196621, 2, 65536)
 
 [node name="Player" parent="." instance=ExtResource("2_g7dk6")]
 position = Vector2(768, 158)

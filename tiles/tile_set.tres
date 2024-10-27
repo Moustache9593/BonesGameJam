@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bu3ow4xf144n8"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bu3ow4xf144n8"]
 
 [ext_resource type="Texture2D" uid="uid://bw3or0jtt34ph" path="res://assets/textures/tiles.png" id="1_aeej8"]
+[ext_resource type="PackedScene" uid="uid://ba4e8mm1pv16q" path="res://entities/lava.tscn" id="2_ok15t"]
 [ext_resource type="PackedScene" uid="uid://pmlgo6dsdjak" path="res://entities/climable.tscn" id="2_vhv5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tpyj"]
@@ -164,6 +165,7 @@ texture_region_size = Vector2i(64, 64)
 7:3/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_kqgkb"]
+scenes/1/scene = ExtResource("2_ok15t")
 scenes/2/scene = ExtResource("2_vhv5r")
 
 [resource]

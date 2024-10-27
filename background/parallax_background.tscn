@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqsnt5lsixafr"]
+
+[ext_resource type="Texture2D" uid="uid://csr581ofka446" path="res://assets/textures/background.png" id="1_bv3i1"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bv3i1")
+centered = false

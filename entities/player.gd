@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_SPEED = 400.0
+const SPEED = 400.0
+const JUMP_SPEED = 800.0
 var has_arms = false
 var has_legs = false
 const CLIMB_SPEED = 200
@@ -19,6 +19,9 @@ var current_type = "skull"
 var climbing_areas = []
 var moving_platforms = []
 
+
+func die():
+	get_tree().reload_current_scene()
 
 func _ready():
 	transformation(CURRENT_TYPE)
@@ -38,13 +41,13 @@ func is_climbing():
 		return false
 
 func can_jump():
-	if has_legs and is_on_floor():
+	if has_legs and (is_on_floor() or !moving_platforms.is_empty()):
 		return true
 	else:
 		return false
 
 func add_gravity(delta):
-	velocity.y += gravity
+	velocity.y += gravity*.75
 
 func get_gravity():
 	return gravity
@@ -66,7 +69,7 @@ func _physics_process(delta):
 		desired_velcity.x += direction * SPEED 
 	# Handle jump.
 	if can_jump() and Input.is_action_just_pressed("ui_accept"):
-		desired_velcity.y -= JUMP_SPEED
+		velocity.y -= JUMP_SPEED
 	# Handle climb
 	elif is_climbing():
 		desired_velcity.y += CLIMB_SPEED * get_climb_direction()
@@ -77,28 +80,38 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func disable_all():
+	$SkullCollision.call_deferred("set_disabled",true)
+	$ArmsCollision.call_deferred("set_disabled", true)
+	$LegsCollision.call_deferred("set_disabled", true)
+	$SkullSprite.visible = false
+	$ArmsCollision.visible = false
+	$FullBodySprite.visible = false
+	$Tiles0001.visible = false
+	has_arms = false
+	has_legs = false
+
+
 func transformation(type):
 	
-	
+	disable_all()
 	match type:
 		"skull":
-			pass
+			$SkullCollision.call_deferred("set_disabled", false)
+			$SkullSprite.visible = true
 		"arms":
-			
-			#$SkullCollision.disabled = true;
-			#$ArmsCollision.disabled = false;
-			#$SkullPlusArmsSprite.visible = true
-			#$SkullSprite.visible = false
-			#position.y -= UP_POS
-			
-			$SkullCollision.call_deferred("set_disabled", true)
-			$ArmsCollision.call_deferred("set_disabled", false)
 			$SkullPlusArmsSprite.visible = true
-			$SkullSprite.visible = false
-			
-			
+			$ArmsCollision.call_deferred("set_disabled", false)
 			position.y -= UP_POS
 			has_arms = true
+		"legs":
+			$LegsCollision.call_deferred("set_disabled", false)
+			$FullBodySprite.visible = true
+			position.y -= 2*UP_POS
+			has_arms = true
+			has_legs=true
+			
+
 	current_type = type
 	pass
 
