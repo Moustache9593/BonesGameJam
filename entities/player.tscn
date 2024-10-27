@@ -1,18 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwmr53u0td13h"]
+[gd_scene load_steps=10 format=3 uid="uid://bwmr53u0td13h"]
 
 [ext_resource type="Script" path="res://entities/player.gd" id="1_1ggas"]
 [ext_resource type="Texture2D" uid="uid://c32fxk74dcp54" path="res://assets/textures/tiles_0001.png" id="2_p6k4o"]
 [ext_resource type="Texture2D" uid="uid://h37a4tqdhdlj" path="res://assets/textures/player_placeholder.png" id="3_w2dov"]
-[ext_resource type="Texture2D" uid="uid://df5tt3mdt6ljn" path="res://assets/textures/player_with_arms.png" id="4_1qh6g"]
+[ext_resource type="Texture2D" uid="uid://5ebljrqrd6v0" path="res://assets/textures/pickup.png" id="4_xugva"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4y7f"]
-size = Vector2(32, 32)
+size = Vector2(32, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2ont"]
-size = Vector2(32, 64)
+size = Vector2(32, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryxsv"]
+size = Vector2(32, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_711en"]
-size = Vector2(32, 64)
+size = Vector2(32, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvr8k"]
 size = Vector2(32, 18)
@@ -24,7 +27,6 @@ script = ExtResource("1_1ggas")
 visible = false
 modulate = Color(1, 1, 1, 0.105882)
 position = Vector2(-1.90735e-06, 1.90735e-06)
-scale = Vector2(1, 1)
 texture = ExtResource("2_p6k4o")
 metadata/_edit_lock_ = true
 
@@ -32,22 +34,29 @@ metadata/_edit_lock_ = true
 texture = ExtResource("3_w2dov")
 
 [node name="SkullPlusArmsSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -16)
-texture = ExtResource("4_1qh6g")
+position = Vector2(0, -4)
+scale = Vector2(1, 1.25)
+texture = ExtResource("4_xugva")
 
 [node name="SkullCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_k4y7f")
 
 [node name="ArmsCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_s2ont")
+disabled = true
+
+[node name="LegsCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ryxsv")
 disabled = true
 
 [node name="ClimbBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbBox"]
-position = Vector2(0, -16)
+position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_711en")
 
 [node name="MovingPlatformChecker" type="Area2D" parent="."]
@@ -55,6 +64,8 @@ shape = SubResource("RectangleShape2D_711en")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformChecker"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_kvr8k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="ClimbBox" to="." method="_on_climb_box_area_entered"]
 [connection signal="area_exited" from="ClimbBox" to="." method="_on_climb_box_area_exited"]

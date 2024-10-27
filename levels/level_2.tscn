@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtrw3rohq1gus"]
+[gd_scene load_steps=8 format=3 uid="uid://dtrw3rohq1gus"]
 
 [ext_resource type="PackedScene" uid="uid://bh4nx8xofl8bd" path="res://tiles/tile_map.tscn" id="1_mblsn"]
 [ext_resource type="PackedScene" uid="uid://bwmr53u0td13h" path="res://entities/player.tscn" id="2_jr2mx"]
@@ -6,48 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://dph0u62ruwg0e" path="res://entities/pick_up.tscn" id="4_vdvyj"]
 [ext_resource type="PackedScene" uid="uid://hn5wpfy80xu6" path="res://entities/level_changer.tscn" id="5_skqyt"]
 
-[sub_resource type="Curve2D" id="Curve2D_ylab7"]
+[sub_resource type="Curve2D" id="Curve2D_3sqcd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -111, -11, 0, 0, 0, 0, 80, -11, 0, 0, 0, 0, -111, -11)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_56sje"]
+[sub_resource type="Curve2D" id="Curve2D_4n2ep"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 368, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 3
+point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_0vo78"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 3
-
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_mblsn")]
-layer_0/tile_data = PackedInt32Array(720896, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 720899, 1, 0, 720898, 1, 0, 720897, 1, 0, 655369, 1, 0, 655368, 1, 0, 720904, 1, 0, 720905, 1, 0, 655370, 1, 0, 720906, 1, 0, 589834, 2, 131072, 524298, 2, 131072, 589835, 2, 131072, 524299, 2, 131072, 458763, 2, 131072, 458762, 2, 131072, 393226, 2, 131072, 393227, 2, 131072, 327692, 2, 131072, 327691, 2, 131072, 196626, 2, 131072, 262162, 2, 131072, 131090, 2, 131072, 65554, 2, 131072, 18, 2, 131072, 17, 2, 131072, 16, 2, 131072, 12, 2, 131072, 13, 2, 131072, 14, 2, 131072, 15, 2, 131072, 458764, 1, 0, 458765, 1, 0, 393229, 1, 0, 393228, 2, 131072, 327693, 2, 131072, 327698, 2, 131072, 589833, 2, 131072, 524297, 2, 131072, 458761, 2, 131072, 393225, 2, 131072, 327689, 2, 131072, 327690, 2, 131072, 131080, 1, 0, 720900, 65537, 0, 720901, 65537, 0, 720902, 65537, 0, 720903, 65537, 0, 655367, 65537, 0, 655366, 65537, 0, 655365, 65537, 0, 655364, 65537, 0)
+layer_0/tile_data = PackedInt32Array(65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 393215, 1, 0, 458751, 1, 0, 524287, 1, 0, 589823, 1, 0, 655359, 1, 0, 720895, 1, 0, 786431, 1, 0, 720896, 1, 0, 327684, 1, 0, 393220, 1, 0, 458756, 1, 0, 524292, 1, 0, 327685, 1, 0, 393221, 1, 0, 458757, 1, 0, 524293, 1, 0, 327686, 1, 0, 393222, 2, 131072, 458758, 2, 131072, 524294, 2, 131072, 589830, 2, 131072, 327687, 1, 0, 393223, 2, 131072, 458759, 2, 131072, 524295, 1, 0, 589831, 1, 0, 196616, 1, 0, 262152, 1, 0, 327688, 1, 0, 393224, 2, 131072, 458760, 2, 131072, 524296, 1, 0, 589832, 1, 0, 262153, 2, 131072, 327689, 2, 131072, 393225, 2, 131072, 851967, 1, 0, 786432, 1, 0, 655367, 1, 0, 655368, 1, 0, 458761, 2, 131072, 589840, 1, 0, 524290, 1, 0, 524291, 1, 0, 655360, 1, 0, 589829, 2, 131072, 589828, 2, 131072, 589827, 2, 131072, 589826, 2, 131072, 589825, 2, 131072, 720914, 1, 0, 720915, 1, 0, -1, 1, 0, -65537, 1, 0, -131073, 1, 0, -196609, 1, 0, 589841, 1, 0, 524304, 1, 0, 458768, 1, 0, 393232, 1, 0, 327696, 1, 0, 262160, 1, 0, 196624, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 655383, 1, 0, 589847, 1, 0, 524311, 1, 0, 458775, 1, 0, 393239, 1, 0, 327703, 1, 0, 262167, 1, 0, 196631, 1, 0, 131095, 1, 0, 65559, 1, 0, 23, 1, 0, -65513, 1, 0, -131049, 1, 0, -262121, 1, 0, -196585, 1, 0, 16, 1, 0, 65552, 1, 0, 131088, 1, 0, 524305, 1, 0, 458769, 1, 0, 393233, 1, 0, 327697, 1, 0, 262161, 1, 0, 196625, 1, 0, 131089, 1, 0, 65553, 1, 0, 17, 1, 0, 589842, 1, 0, 589843, 1, 0)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_jr2mx")]
-position = Vector2(46, 544)
-metadata/_edit_lock_ = true
-
-[node name="MovingPlatform" parent="." instance=ExtResource("3_pvty7")]
-position = Vector2(367, 651)
-curve = SubResource("Curve2D_ylab7")
-
-[node name="PickUp" parent="." instance=ExtResource("4_vdvyj")]
-position = Vector2(534, 619)
-
-[node name="MovingPlatform2" parent="." instance=ExtResource("3_pvty7")]
-position = Vector2(896, 384)
-curve = SubResource("Curve2D_56sje")
-
-[node name="MovingPlatform3" parent="." instance=ExtResource("3_pvty7")]
-position = Vector2(768, 128)
-curve = SubResource("Curve2D_0vo78")
+position = Vector2(24, 616)
+CURRENT_TYPE = "arms"
 
 [node name="LevelChanger" parent="." instance=ExtResource("5_skqyt")]
-position = Vector2(544, 96)
+position = Vector2(216, 480)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(640, 256)
+curve = SubResource("Curve2D_3sqcd")
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(736, 384)
+curve = SubResource("Curve2D_3sqcd")
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("3_pvty7")]
+position = Vector2(800, 704)
+curve = SubResource("Curve2D_4n2ep")
+
+[node name="PickUp" parent="." instance=ExtResource("4_vdvyj")]
+position = Vector2(1432, 688)

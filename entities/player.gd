@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_SPEED = 400.0
 var has_arms = false
 var has_legs = false
-const CLIMB_VELOCITY = -200
+const CLIMB_SPEED = 200
 const UP_POS = 16;
 const CLIMB_FALL_SPEED = 0
+@export var CURRENT_TYPE = "skull"
+
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +19,9 @@ var current_type = "skull"
 var climbing_areas = []
 var moving_platforms = []
 
+
+func _ready():
+	transformation(CURRENT_TYPE)
 
 func can_climb():
 	if has_arms and !climbing_areas.is_empty():
@@ -24,7 +31,7 @@ func can_climb():
 		return false
 
 func is_climbing():
-	if can_climb() and Input.is_action_pressed("up"):
+	if can_climb() and get_climb_direction()!=0:
 		print("Climbing")
 		return true
 	else:
@@ -42,6 +49,9 @@ func add_gravity(delta):
 func get_gravity():
 	return gravity
 
+func get_climb_direction():
+	return float(Input.is_action_pressed("down")) - float(Input.is_action_pressed("up"))
+	
 
 func _physics_process(delta):
 	var direction = float(Input.is_action_pressed("right")) - float(Input.is_action_pressed("left"))
@@ -56,10 +66,10 @@ func _physics_process(delta):
 		desired_velcity.x += direction * SPEED 
 	# Handle jump.
 	if can_jump() and Input.is_action_just_pressed("ui_accept"):
-		desired_velcity.y += JUMP_VELOCITY
+		desired_velcity.y -= JUMP_SPEED
 	# Handle climb
 	elif is_climbing():
-		desired_velcity.y += CLIMB_VELOCITY
+		desired_velcity.y += CLIMB_SPEED * get_climb_direction()
 	elif can_climb() and !is_climbing():
 		desired_velcity.y += 0
 	print(desired_velcity)
@@ -68,7 +78,11 @@ func _physics_process(delta):
 
 
 func transformation(type):
+	
+	
 	match type:
+		"skull":
+			pass
 		"arms":
 			
 			#$SkullCollision.disabled = true;
@@ -82,8 +96,10 @@ func transformation(type):
 			$SkullPlusArmsSprite.visible = true
 			$SkullSprite.visible = false
 			
+			
 			position.y -= UP_POS
 			has_arms = true
+	current_type = type
 	pass
 
 
